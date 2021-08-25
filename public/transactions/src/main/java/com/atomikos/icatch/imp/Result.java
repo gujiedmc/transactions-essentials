@@ -110,6 +110,7 @@ abstract class Result
     }
 
     /**
+     * 等所有的prepare执行结束
      * Wait until all replies arrived.
      *
      * @exception InterruptedException

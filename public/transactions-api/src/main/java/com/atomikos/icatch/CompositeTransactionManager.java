@@ -10,6 +10,10 @@ package com.atomikos.icatch;
 
 
 /**
+ * 通过线程变量管理 组合事务。可以当做一个CompositeTransaction的存储器
+ * 通过事务相关的方法进行增删改查，并不执行业务逻辑
+ *
+ *
  * This interface outlines the API for managing composite transactions
  * in the local VM.
  */

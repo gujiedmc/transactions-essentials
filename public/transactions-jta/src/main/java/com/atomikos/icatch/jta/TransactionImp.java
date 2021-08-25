@@ -36,6 +36,7 @@ import com.atomikos.logging.LoggerFactory;
 import com.atomikos.recovery.TxState;
 
 /**
+ * 容器内部使用的事务
  * Implementation of the javax.transaction.Transaction interface.
  */
 

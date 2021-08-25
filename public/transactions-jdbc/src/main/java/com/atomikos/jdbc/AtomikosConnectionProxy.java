@@ -190,7 +190,7 @@ class AtomikosConnectionProxy extends AbstractConnectionProxy
 	
 
 	/**
-	 * Enlist if necessary
+	 * Enlist if necessary   如果当前数据库连接还没有加入过全局事务，则加入进来
 	 * @return True if a JTA transaction was found, false otherwise.
 	 *
 	 * @throws AtomikosSQLException

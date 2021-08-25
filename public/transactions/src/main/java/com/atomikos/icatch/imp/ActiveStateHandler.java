@@ -101,12 +101,15 @@ class ActiveStateHandler extends CoordinatorStateHandler
         globalSiblingCount_ = count;
     }
 
+    /**
+     * 遍历参与制事务执行prepare，并在!ALL_OK 的时候执行回滚
+     */
     protected int prepare () throws RollbackException,
             java.lang.IllegalStateException, HeurHazardException,
             HeurMixedException, SysException
     {
 
-        int count = 0; // number of participants
+        int count = 0; // number of participants  参与者事务数量
         PrepareResult result = null; // synchronization
         boolean allReadOnly = true; // if still true at end-> readonly vote
         int ret = 0; // return value
@@ -156,6 +159,7 @@ class ActiveStateHandler extends CoordinatorStateHandler
         	}
             count = participants.size ();
             result = new PrepareResult ( count );
+            // 开始遍历
             Enumeration<Participant> enumm = participants.elements ();
             while ( enumm.hasMoreElements () ) {
                 Participant p = (Participant) enumm.nextElement ();
@@ -171,6 +175,7 @@ class ActiveStateHandler extends CoordinatorStateHandler
                 getPropagator ().submitPropagationMessage ( pm );
             } // while
 
+            // 等待所有命令响应回来
             result.waitForReplies ();
 
             boolean voteOK = result.allYes ();

@@ -30,6 +30,9 @@ import com.atomikos.recovery.TxState;
 import com.atomikos.thread.InterruptedExceptionHelper;
 
 /**
+ * 协调者{@link CoordinatorImp} 状态处理器。
+ * 对所有的
+ *
  * Application of the state pattern to the transaction coordinator: each
  * important state has a handler and this class is the superclass that holds
  * common logic.
@@ -315,6 +318,8 @@ abstract class CoordinatorStateHandler
             HeurHazardException, java.lang.IllegalStateException;
 
     /**
+     *
+     * 遍历所有参与者执行
      * Auxiliary method for committing. This method can be reused in subclasses
      * in order to process commit.
      *
@@ -333,6 +338,7 @@ abstract class CoordinatorStateHandler
 
         try {
 
+            // 所有的参与者
             Vector<Participant> participants = coordinator_.getParticipants();
             int count = (participants.size () - readOnlyTable_.size ());
             TerminationResult commitresult = new TerminationResult ( count );
@@ -352,6 +358,7 @@ abstract class CoordinatorStateHandler
         	}
 
 
+            // 遍历执行
             // start messages
             Enumeration<Participant> enumm = participants.elements ();
             while ( enumm.hasMoreElements () ) {

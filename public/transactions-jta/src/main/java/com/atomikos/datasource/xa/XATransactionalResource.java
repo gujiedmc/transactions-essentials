@@ -27,7 +27,7 @@ import com.atomikos.recovery.xa.XaResourceRecoveryManager;
 
 
 /**
- *
+ * XA 事务的Resource定义，也就是数据库
  *
  * An abstract XA implementation of a transactional resource.
  *

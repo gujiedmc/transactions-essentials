@@ -33,7 +33,7 @@ public class CompositeTransactionManagerImp implements CompositeTransactionManag
 {
 	private static final Logger LOGGER = LoggerFactory.createLogger(CompositeTransactionManagerImp.class);
 	
-	private Map<Thread, Stack<CompositeTransaction>> threadtotxmap_ = null;
+	private Map<Thread, Stack<CompositeTransaction>> threadtotxmap_ = null; // 当前线程的事务
     private Map<CompositeTransaction, Thread> txtothreadmap_ = null;
 
 

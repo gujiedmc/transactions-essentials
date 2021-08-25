@@ -30,7 +30,7 @@ import com.atomikos.recovery.TxState;
 import com.atomikos.util.Assert;
 
 /**
- * 
+ * XA事务中的一个参与者事务
  * 
  * An implementation of ResourceTransaction for XA transactions.
  */

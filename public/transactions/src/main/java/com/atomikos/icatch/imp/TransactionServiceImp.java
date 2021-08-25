@@ -279,7 +279,7 @@ public class TransactionServiceImp implements TransactionServiceProvider,
     }
 
     /**
-     * Creation method for composite coordinators.
+     * Creation method for composite coordinators.  创建协调者
      *
      * @param RecoveryCoordinator
      *            An existing coordinator for the given root. Null if not a
@@ -773,7 +773,7 @@ public class TransactionServiceImp implements TransactionServiceProvider,
             throw new IllegalStateException ( "Max number of active transactions reached:" + maxNumberOfActiveTransactions_ );
         }
         
-        String tid = tidmgr_.get ();
+        String tid = tidmgr_.get (); // 事务id  127.0.0.1.tm162971952201100002
         Stack<CompositeTransaction> lineage = new Stack<CompositeTransaction>();
         // create a CC with heuristic preference set to false,
         // since it does not really matter anyway (since we are

@@ -32,7 +32,7 @@ import com.atomikos.logging.LoggerFactory;
 import com.atomikos.recovery.TxState;
 
 /**
- * The main JTA transaction manager singleton.
+ * The main JTA transaction manager singleton. 单例的JTA事务管理器
  */
 
 public class TransactionManagerImp implements TransactionManager,
@@ -64,8 +64,14 @@ public class TransactionManagerImp implements TransactionManager,
     	};
 	};
 
+    /**
+     * tid -> tx
+     */
     private Map<String, TransactionImp> jtaTransactionToCoreTransactionMap;
 
+    /**
+     * 组合事务管理器
+     */
     private CompositeTransactionManager compositeTransactionManager;
 
     private boolean enableAutomatRegistrationOfUnknownXAResources;

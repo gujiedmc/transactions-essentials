@@ -15,6 +15,8 @@ import java.util.Stack;
 import com.atomikos.recovery.TxState;
 
 /**
+ * 组合事务接口。
+ *
  * Represents a nested part of a global
  * composite transaction. Each invocation of a server is 
  * represented by an instance of this type. For transaction

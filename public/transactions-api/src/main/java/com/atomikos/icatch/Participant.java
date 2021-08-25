@@ -14,6 +14,7 @@ import java.util.Map;
 
 
 /**
+ * 2PC 分布式事务中的参与者
  * A participant for (distributed) two-phase commit of composite transactions.
  * 
  * Implementations can be added as a 2PC participant in the icatch kernel.

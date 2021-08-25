@@ -45,6 +45,9 @@ class PrepareResult extends Result
         super ( count );
     }
 
+    /**
+     * 计算PREPARE执行结果
+     */
     protected synchronized void calculateResultFromAllReplies () throws IllegalStateException,
             InterruptedException
     {

@@ -23,6 +23,10 @@ import com.atomikos.icatch.config.UserTransactionServiceImp;
 import com.atomikos.util.SerializableObjectFactory;
 
 /**
+ * atomikos实现的JTA事务对象，begin, commit, rollback 等方法执行时会委托给
+ * 引用着 atomikos实现的 TransactionManager，实例对象为 TransactionManagerImp 在 {@link #checkSetup()}中初始化。
+ *
+ *
  * Our UserTransaction implementation for J2SE transactions. This class is
  * special in that it automatically starts up and recover the transaction
  * service on first use. <b>Note: don't use this class in J2EE applications in
@@ -35,7 +39,7 @@ public class UserTransactionImp implements UserTransaction, Serializable,
 {
 	private static final long serialVersionUID = -865418426269785202L;
 	
-	private transient TransactionManager txmgr_;
+	private transient TransactionManager txmgr_;// 实现为 TransactionManagerImp
 
     /**
      * No-argument constructor.
@@ -63,6 +67,7 @@ public class UserTransactionImp implements UserTransaction, Serializable,
     }
 
     /**
+     * 启动事务，但在xa中
      * @see javax.transaction.UserTransaction
      */
 

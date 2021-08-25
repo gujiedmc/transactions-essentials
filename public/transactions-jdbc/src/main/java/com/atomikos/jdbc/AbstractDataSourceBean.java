@@ -334,16 +334,16 @@ implements DataSource, ConnectionPoolProperties, Referenceable, Serializable
 	protected abstract void doClose();
 
 	/* DataSource impl */
-
+	// 获取连接
 	public Connection getConnection() throws SQLException 
 	{
 		if ( LOGGER.isDebugEnabled() ) LOGGER.logDebug ( this + ": getConnection()..." );
 		Connection connection = null;
 		
-		init();
+		init(); // 连接池初始化
 		
 		try {
-			connection = (Connection) connectionPool.borrowConnection();
+			connection = (Connection) connectionPool.borrowConnection(); // 从连接池那一个连接
 			
 		} catch (CreateConnectionException ex) {
 			throwAtomikosSQLException("Failed to grow the connection pool", ex);

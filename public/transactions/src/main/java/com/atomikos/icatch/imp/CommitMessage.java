@@ -17,6 +17,7 @@ import com.atomikos.logging.Logger;
 import com.atomikos.logging.LoggerFactory;
 
 /**
+ * 执行Commit
  * A commit message implementation.
  */
 

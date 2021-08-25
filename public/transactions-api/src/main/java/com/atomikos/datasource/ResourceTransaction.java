@@ -10,6 +10,8 @@ package com.atomikos.datasource;
 
 
 /**
+ * 单独的事务
+ *
  * The notion of a local transaction executed on a resource.
  * Serves as a handle towards the transaction management module.
  */
